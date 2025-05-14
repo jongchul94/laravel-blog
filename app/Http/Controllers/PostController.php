@@ -22,7 +22,7 @@ class PostController extends Controller
     public function store(Request $request){
         $request->validate([
             'title' => 'required|max:255',
-            'content' => 'required',
+            'content' => 'required|string',
         ]);
 
         Post::create([
@@ -56,7 +56,7 @@ class PostController extends Controller
 
         $validate = $request->validate([
             'title' => 'required|max:255',
-            'content' => 'required',
+            'content' => 'required|string',
         ]);
 
         $post->update($validate);
