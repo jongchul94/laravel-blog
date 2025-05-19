@@ -619,6 +619,9 @@ video {
 .ml-1 {
   margin-left: 0.25rem;
 }
+.ml-4 {
+  margin-left: 1rem;
+}
 .ms-1 {
   margin-inline-start: 0.25rem;
 }
@@ -1097,9 +1100,6 @@ video {
 .pt-6 {
   padding-top: 1.5rem;
 }
-.text-left {
-  text-align: left;
-}
 .text-center {
   text-align: center;
 }
@@ -1111,6 +1111,10 @@ video {
 }
 .font-sans {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 .text-\[13px\] {
   font-size: 13px;
@@ -1164,6 +1168,9 @@ video {
 }
 .leading-normal {
   line-height: 1.5;
+}
+.leading-relaxed {
+  line-height: 1.625;
 }
 .leading-tight {
   line-height: 1.25;
