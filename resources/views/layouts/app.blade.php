@@ -29,9 +29,19 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div class="mx-auto p-4">
+                    {{ $slot }}
+                </div>
             </main>
         </div>
+        <footer class="mt-12 border-t pt-6 pb-4 text-center text-sm text-gray-500 bg-white dark:bg-gray-900 dark:text-gray-400">
+            <p>© {{ date('Y') }} Laravel Blog. All rights reserved.</p>
+            <p>
+                <a href="https://github.com/jongchul94/laravel-blog" target="_blank" class="hover:underline">
+                    GitHub Repository
+                </a>
+            </p>
+        </footer>
         <script src="{{ asset('js/app.js') }}" defer></script>
     </body>
 </html>

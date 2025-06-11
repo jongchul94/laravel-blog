@@ -41,6 +41,15 @@
                             {{ __('프로필') }}
                         </x-dropdown-link>
 
+                        @if(auth()->user() && auth()->user()->is_admin)
+                            <x-dropdown-link :href="route('admin.posts')">
+                                {{ __('게시물 관리') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('admin.users')">
+                                {{ __('이용자 관리') }}
+                            </x-dropdown-link>
+                        @endif
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -73,6 +82,10 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.index')">
+                {{ __('Posts') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -86,6 +99,15 @@
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('프로필') }}
                 </x-responsive-nav-link>
+
+                @if(auth()->user() && auth()->user()->is_admin)
+                    <x-responsive-nav-link :href="route('admin.posts')">
+                        {{ __('게시물 관리') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('admin.users')">
+                        {{ __('이용자 관리') }}
+                    </x-responsive-nav-link>
+                @endif
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">

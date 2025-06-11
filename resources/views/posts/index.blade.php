@@ -5,10 +5,9 @@
         </h2>
     </x-slot>
     <div class="bg-white shadow-md rounded-lg overflow-hidden">
-        <table class="min-w-full bg-white">
+        <table class="min-w-full bg-white overflow-x-auto">
             <thead class="w-full bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                 <tr>
-                    <th class="py-3 px-6"></th>
                     <th class="py-3 px-6">제목</th>
                     <th class="py-3 px-6">작성일</th>
                     <th class="py-3 px-6">작성자</th>
@@ -17,10 +16,9 @@
             <tbody class="text-gray-700 text-sm">
             @foreach($posts as $post)
                 <tr class="border-b border-gray-200 hover:bg-gray-100">
-                    <td class="py-3 px-6 text-center"></td>
                     <td class="py-3 px-6 text-center"><a href="{{route('posts.show', [$post->id])}}">{{$post->title}}</a></td>
-                    <td class="py-3 px-6 text-center">{{$post->created_at}}</td>
-                    <td class="py-3 px-6 text-center"></td>
+                    <td class="py-3 px-6 text-center">{{$post->created_at->format('Y-m-d H:i')}}</td>
+                    <td class="py-3 px-6 text-center">{{$post->user->name}}</td>
                 </tr>
             @endforeach
             </tbody>
