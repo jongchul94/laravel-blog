@@ -8,11 +8,24 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-    public function index(){
-        $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('posts.index', [
-            'posts' => $posts,
-        ]);
+    public function index(Request $request){
+        // $posts = Post::orderBy('created_at', 'desc')->get();
+        // return view('posts.index', [
+        //     'posts' => $posts,
+        // ]);
+
+        $query = Post::query();
+
+        if ($search = $request->input('search')) {
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                ->orWhere('content', 'like', "%{$search}%");
+            });
+        }
+
+        $posts = $query->latest()->paginate(3);
+
+        return view('posts.index', compact('posts'));
     }
 
     public function create(){
