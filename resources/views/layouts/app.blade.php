@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
+        <meta name="description" content="@yield('meta_description', 'My Laravel Blog')">
+        <meta property="og:title" content="@yield('meta_title', 'My Laravel Blog')">
+        <meta property="og:description" content="@yield('meta_description', 'My Laravel Blog')">
+        <meta property="og:type" content="website">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>@yield('meta_title', 'My Laravel Blog')</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -43,5 +47,20 @@
             </p>
         </footer>
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script defer>
+            document.addEventListener('DOMContentLoaded', () => {
+                if (localStorage.theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                }
+            });
+
+            const darkBtn = document.getElementById('darkToggle');
+            if (darkBtn) {
+                darkBtn.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+                });
+            }
+        </script>
     </body>
 </html>
