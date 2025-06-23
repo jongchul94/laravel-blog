@@ -18,7 +18,7 @@
         <!-- Scripts -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
 
@@ -38,7 +38,7 @@
                 </div>
             </main>
         </div>
-        <footer class="mt-12 border-t pt-6 pb-4 text-center text-sm text-gray-500 bg-white dark:bg-gray-900 dark:text-gray-400">
+        <footer class="mt-12 border-t border-gray-200 dark:border-gray-700 pt-6 pb-4 text-center text-sm text-gray-500 bg-white dark:bg-gray-900 dark:text-gray-400">
             <p>© {{ date('Y') }} Laravel Blog. All rights reserved.</p>
             <p>
                 <a href="https://github.com/jongchul94/laravel-blog" target="_blank" class="hover:underline">

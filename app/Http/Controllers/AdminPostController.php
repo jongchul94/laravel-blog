@@ -9,7 +9,7 @@ class AdminPostController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('user')->latest()->paginate(10);
+        $posts = Post::with('user')->latest()->paginate(10)->withQueryString();
         return view('admin.posts.index', compact('posts'));
     }
 

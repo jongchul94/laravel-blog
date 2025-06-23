@@ -7,15 +7,15 @@
         </h2>
     </x-slot>
     <div class="container mx-auto p-6">
-        <div class="bg-white shadow rounded-lg p-6 mb-4">
+        <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-6 mb-4">
             <div class="flex justify-between items-center">
-                <h1 class="text-2xl font-bold">{{ $post->title }}</h1>
+                <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{{ $post->title }}</h1>
             </div>
-            <div class="text-sm text-gray-500 mt-2">
+            <div class="text-sm text-gray-500 dark:text-gray-300 mt-2">
                 <span>작성자: {{ $post->user->name}}</span>
                 <span class="ml-4">{{ $post->created_at->format('Y-m-d H:i') }}</span>
             </div>
-            <div class="mt-4 text-gray-700 leading-relaxed">
+            <div class="mt-4 text-gray-700 dark:text-gray-200 leading-relaxed">
                 {!! nl2br($post->content) !!}
             </div>
         </div>
@@ -33,13 +33,13 @@
             <button class="bg-stone-200 text-gray px-4 py-2 rounded hover:bg-stone-300 transition" type="button" onclick="location.href='{{route('posts.index')}}'">목록</button>
         </div>
 
-        <div class="mt-4 bg-white shadow rounded-lg p-6">
-            <h2 class="text-lg font-semibold mb-4">댓글</h2>
+        <div class="mt-4 bg-white dark:bg-gray-800 shadow rounded-lg p-6">
+            <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">댓글</h2>
             @foreach ($post->comments as $comment)
-                <div class="border-b py-3 flex justify-between items-center">
-                    <div class="text-gray-500 text-sm">
+                <div class="border-b border-gray-200 dark:border-gray-700 py-3 flex justify-between items-center">
+                    <div class="text-gray-700 dark:text-gray-300 text-sm">
                         <span class="font-semibold">{{ $comment->user->name }}</span> ·
-                        <span class="text-gray-500">{{ $comment->created_at->format('Y-m-d H:i') }}</span><br>
+                        <span class="text-gray-500 dark:text-gray-400">{{ $comment->created_at->format('Y-m-d H:i') }}</span><br>
                         <span>{{ $comment->content }}</span>
                     </div>
                     @auth
@@ -64,7 +64,7 @@
             <form method="POST" action="{{ route('comments.store') }}">
                 @csrf
                 <input type="hidden" name="post_id" value="{{ $post->id }}">
-                <textarea name="content" class="w-full border rounded p-2 mb-2" placeholder="댓글을 입력하세요"></textarea>
+                <textarea name="content" class="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded p-2 mb-2" placeholder="댓글을 입력하세요"></textarea>
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
                     댓글 작성
                 </button>

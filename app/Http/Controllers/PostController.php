@@ -23,7 +23,7 @@ class PostController extends Controller
             });
         }
 
-        $posts = $query->latest()->paginate(3);
+        $posts = $query->latest()->paginate(3)->withQueryString();
 
         return view('posts.index', compact('posts'));
     }
@@ -81,6 +81,6 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $post->delete();
 
-        return redirect() -> route('posts.index');
+        return redirect()->route('posts.index');
     }
 }

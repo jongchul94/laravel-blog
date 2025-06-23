@@ -63,7 +63,7 @@
                     </x-slot>
                 </x-dropdown>
                 <button id="darkToggle" 
-                    class="p-2 ml-4 rounded border">
+                    class="p-2 ml-4 rounded">
                     🌙
                 </button>
             </div>

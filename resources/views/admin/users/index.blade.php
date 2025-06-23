@@ -4,9 +4,9 @@
             Admin - Users
         </h2>
     </x-slot>
-    <div class="bg-white shadow-md rounded-lg overflow-hidden">
-        <table class="min-w-full bg-white">
-            <thead class="w-full bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+    <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
+        <table class="min-w-full bg-white dark:bg-gray-800">
+            <thead class="w-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 uppercase text-sm leading-normal">
                 <tr>
                     <th class="px-4 py-2">이름</th>
                     <th class="px-4 py-2">이메일</th>
@@ -14,9 +14,9 @@
                     <th class="px-4 py-2">관리</th>
                 </tr>
             </thead>
-            <tbody class="text-gray-700 text-sm">
+            <tbody class="text-gray-700 dark:text-gray-200 text-sm">
                 @foreach ($users as $user)
-                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700">
                         <td class="px-4 py-2 text-center">{{ $user->name }}</td>
                         <td class="px-4 py-2 text-center">{{ $user->email }}</td>
                         <td class="px-4 py-2 text-center">
